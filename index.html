@@ -63,6 +63,17 @@ h2{font:500 1.9rem/1.1 'Playfair Display',serif;margin:0}
 .item:hover h3{color:var(--gold)}
 .meta .pr{color:var(--dim);font-size:.95rem}
 .item p{margin:2px 0 0;font-size:.9rem;color:var(--dim)}
+.sub{color:var(--dim);font-size:.95rem}
+.port{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.shot{display:grid;place-items:center;aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:#1d150f;color:var(--dim);font-size:.9rem;border:1px solid transparent;transition:border-color .35s,transform .4s var(--ease)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .8s var(--ease)}
+.shot:hover{border-color:var(--gold);transform:translateY(-4px)}
+.shot:hover img{transform:scale(1.05)}
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.rev{margin:0;padding:4px 0 4px 20px;border-left:1px solid var(--line);transition:border-color .35s,transform .4s var(--ease)}
+.rev:hover{border-color:var(--gold);transform:translateX(4px)}
+.rev blockquote{margin:0 0 10px;font:500 1.15rem/1.5 'Playfair Display',serif}
+.rev figcaption{color:var(--gold);font-size:.9rem}
 .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border-top:1px solid var(--line)}
 .svc{cursor:pointer;padding:30px 28px 30px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px;transition:padding-left .4s var(--ease)}
 .svc:hover{padding-left:12px}
@@ -95,15 +106,13 @@ footer{margin-top:110px;border-top:1px solid var(--line);padding:36px 24px 44px;
 footer .links{display:flex;gap:26px;justify-content:center;margin-bottom:12px;color:var(--cream)}
 @media(max-width:700px){header.top .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:8px 18px}header.top nav{order:3;width:100%;overflow-x:auto;gap:22px}.hero{padding-top:56px}.banner{aspect-ratio:16/9}.item .get{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important}html{scroll-behavior:auto}}
-/* SHOP HIDDEN FOR NOW: delete the next line when your ST cards are ready */
-#shop,a[href="#shop"]{display:none !important}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#top">Mad Scientist Mio</a>
-    <nav><a class="ul" href="#shop">Shop</a><a class="ul" href="#commissions">Commissions</a><a class="ul" href="#faq">FAQ</a><a class="ul" href="#about">About</a></nav>
+    <nav><a class="ul" href="#shop">Shop</a><a class="ul" href="#portfolio">Portfolio</a><a class="ul" href="#commissions">Commissions</a><a class="ul" href="#reviews">Reviews</a><a class="ul" href="#faq">FAQ</a><a class="ul" href="#about">About</a></nav>
     <a class="btn" href="https://ko-fi.com/femmuist">Ko-fi</a>
   </div>
 </header>
@@ -112,7 +121,7 @@ footer .links{display:flex;gap:26px;justify-content:center;margin-bottom:12px;co
   <div class="hero">
     <h1>Character cards, made in the lab.</h1>
     <p>Ready-to-use SillyTavern cards, plus custom cards written for your character. Commissions are open.</p>
-    <div class="cta"><a class="btn solid" href="#shop">Browse cards</a><a class="btn solid" href="#commissions">Order a custom card</a></div>
+    <div class="cta"><a class="btn solid" href="#shop">Browse cards</a><a class="btn" href="#commissions">Order a custom card</a></div>
     <div class="banner"><img src="https://imagepaste.org/i/mfaqfcny.gif" alt=""></div>
   </div>
 
@@ -141,23 +150,35 @@ footer .links{display:flex;gap:26px;justify-content:center;margin-bottom:12px;co
     </div>
   </section>
 
+  <section id="portfolio">
+    <div class="head"><h2>Portfolio</h2><span class="sub">CSS bio work</span></div>
+    <div class="port">
+      <!-- COPY THIS BLOCK FOR EACH IMAGE. Put your screenshots in the portfolio/ folder -->
+      <a class="shot" href="portfolio/work1.png" target="_blank" rel="noopener"><img src="portfolio/work1.png" alt="CSS bio example 1" loading="lazy" onerror="this.replaceWith('Image coming soon')"></a>
+      <a class="shot" href="portfolio/work2.png" target="_blank" rel="noopener"><img src="portfolio/work2.png" alt="CSS bio example 2" loading="lazy" onerror="this.replaceWith('Image coming soon')"></a>
+      <a class="shot" href="portfolio/work3.png" target="_blank" rel="noopener"><img src="portfolio/work3.png" alt="CSS bio example 3" loading="lazy" onerror="this.replaceWith('Image coming soon')"></a>
+      <!-- END BLOCK -->
+    </div>
+  </section>
+
   <section id="commissions">
     <div class="head"><h2>Commissions</h2></div>
     <p class="note">Pick a tier and check out securely on Payhip. After you buy, message me on Discord or Ko-fi with your character idea.</p>
     <div class="services">
-      <a class="svc" href="https://payhip.com/buy?link=l0hVE" target="_blank" rel="noopener">
-        <h3>Basic card</h3><div class="pr">$3</div>
-        <ul><li>Description and personality</li><li>First message</li><li>Example dialogue</li></ul>
+      <!-- PASTE YOUR PAYHIP PRODUCT LINKS in each href below (looks like https://payhip.com/b/AbCdE) -->
+      <a class="svc" href="https://payhip.com/b/YOUR-BASIC-LINK" target="_blank" rel="noopener">
+        <h3>Basic card</h3><div class="pr">$--</div>
+        <ul><li>CSS bio and personality</li><li>First message</li><li>Example dialogue</li></ul>
         <span class="btn">Buy on Payhip</span>
       </a>
-      <a class="svc" href="https://payhip.com/buy?link=fh0c5" target="_blank" rel="noopener">
-        <h3>Full card</h3><div class="pr">$6</div>
+      <a class="svc" href="https://payhip.com/b/YOUR-FULL-LINK" target="_blank" rel="noopener">
+        <h3>Full card</h3><div class="pr">$--</div>
         <ul><li>Everything in Basic</li><li>Lorebook</li><li>Alternate greetings</li></ul>
         <span class="btn">Buy on Payhip</span>
       </a>
-      <a class="svc" href="https://payhip.com/buy?link=FLVZ2" target="_blank" rel="noopener">
-        <h3>Card + art</h3><div class="pr">$10</div>
-        <ul><li>Everything in Full</li><li>Custom AI-generated card art</li></ul>
+      <a class="svc" href="https://payhip.com/b/YOUR-ART-LINK" target="_blank" rel="noopener">
+        <h3>Card + art</h3><div class="pr">$--</div>
+        <ul><li>Everything in Full</li><li>Hand-drawn card art by me</li></ul>
         <span class="btn">Buy on Payhip</span>
       </a>
     </div>
@@ -169,26 +190,37 @@ footer .links{display:flex;gap:26px;justify-content:center;margin-bottom:12px;co
     </ol>
   </section>
 
+  <section id="reviews">
+    <div class="head"><h2>Reviews</h2></div>
+    <div class="revs">
+      <!-- COPY THIS BLOCK FOR EACH REVIEW -->
+      <figure class="rev"><blockquote>Paste a customer review here.</blockquote><figcaption>Customer name</figcaption></figure>
+      <figure class="rev"><blockquote>Paste another review here.</blockquote><figcaption>Customer name</figcaption></figure>
+      <figure class="rev"><blockquote>Paste another review here.</blockquote><figcaption>Customer name</figcaption></figure>
+      <!-- END BLOCK -->
+    </div>
+  </section>
+
   <section id="faq">
     <div class="head"><h2>FAQ</h2></div>
-    <details><summary>How long does a commission take?</summary><p>Most cards are done in about 5 to 7 days once your order and character details are in. Card + art takes a bit longer because I generate and polish the art, usually 7 to 10 days. If anything changes, I'll message you.</p></details>
-    <details><summary>What can't I commission?</summary><p>I won't write anything sexual involving characters under 18, real people, or anything illegal. If you're not sure your idea is a fit, message me on Discord before you order and I'll let you know.</p></details>
-    <details><summary>Can I get a refund?</summary><p>Every card is custom digital work, so sales are final once I've started. If something is wrong with your files or I can't deliver, message me and I'll fix it or refund you.</p></details>
-    <details><summary>Can I reuse or share my card?</summary><p>Your card is yours for personal use. You can edit it, use it in SillyTavern and Janitor, and share chats made with it. Please don't resell or redistribute the card files or the art, or pass them off as your own. Credit is always appreciated.</p></details>
+    <details><summary>How long does a commission take?</summary><p>Add your turnaround time here.</p></details>
+    <details><summary>What can't I commission?</summary><p>Add your content rules here.</p></details>
+    <details><summary>Can I get a refund?</summary><p>Add your refund policy here.</p></details>
+    <details><summary>Can I reuse or share my card?</summary><p>Add your terms of use here.</p></details>
   </section>
 
   <section id="about">
     <div class="about">
       <img src="avatar.png" alt="Mio" onerror="this.style.visibility='hidden'">
-      <div><h2>About Mio</h2><p>Hi, I'm Mio. I make ST cards and create the card art with AI. I like Luke Kuechly. Come hang out in the Discord.</p>
+      <div><h2>About Mio</h2><p>Hi, I'm Mio. I make ST cards and draw my own art. I like Luke Kuechly. Come hang out in the Discord.</p>
         <a class="btn" href="https://discord.gg/juX68x8eee">Join the Discord</a></div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="links"><a class="ul" href="https://ko-fi.com/femmuist">Ko-fi</a><a class="ul" href="https://ko-fi.com/femmuist">Tip jar</a><a class="ul" href="https://discord.gg/juX68x8eee">Discord</a></div>
-  <div>Art generated with AI, fonts by Google, CSS help by clausw, inspiration by tigerdropped.</div>
+  <div class="links"><a class="ul" href="https://ko-fi.com/femmuist">Ko-fi</a><a class="ul" href="https://miiimio.neocities.org/tip" target="_blank" rel="noopener">Tip jar</a><a class="ul" href="https://discord.gg/juX68x8eee">Discord</a></div>
+  <div>Art by me, fonts by Google, CSS help by clausw, inspiration by tigerdropped.</div>
 </footer>
 
 <script>
